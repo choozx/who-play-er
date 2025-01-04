@@ -1,0 +1,9 @@
+spring.application.name: who-play-er
+
+logging:
+  level:
+    root: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %level %msg%n"
+
+eternal-return-api-key: ""
