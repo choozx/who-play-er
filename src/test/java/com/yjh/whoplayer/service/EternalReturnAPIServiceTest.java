@@ -1,11 +1,9 @@
 package com.yjh.whoplayer.service;
 
-import com.yjh.whoplayer.model.EternalReturnDto.PlayerListRes.Player;
+import com.yjh.whoplayer.model.EternalReturnDto.GameInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.buf.StringUtils;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.util.StringUtil;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestConstructor;
 
@@ -63,7 +61,7 @@ class EternalReturnAPIServiceTest {
         for (var game : gameList) {
             var playerList = eternalReturnAPIService.getPlayerInfo(game.getGameId());
 
-            String playerString = playerList.stream().map(Player::getNickname)
+            String playerString = playerList.stream().map(GameInfo::getNickname)
                             .collect(Collectors.joining("|"));
             log.info("게임 아이디:{} , 참여자:{}", game.getGameId(), playerString);
 

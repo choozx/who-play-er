@@ -1,9 +1,7 @@
 package com.yjh.whoplayer.service;
 
-import com.yjh.whoplayer.model.EternalReturnDto.PlayerListRes;
-import com.yjh.whoplayer.model.EternalReturnDto.PlayerListRes.Player;
-import com.yjh.whoplayer.model.EternalReturnDto.GameListRes;
-import com.yjh.whoplayer.model.EternalReturnDto.GameListRes.Game;
+import com.yjh.whoplayer.model.EternalReturnDto.GameInfo;
+import com.yjh.whoplayer.model.EternalReturnDto.GameInfoListRes;
 import com.yjh.whoplayer.model.EternalReturnDto.UserInfoRes;
 import com.yjh.whoplayer.model.type.EternalReturnURL;
 import lombok.RequiredArgsConstructor;
@@ -32,23 +30,23 @@ public class EternalReturnAPIService {
                 .body(UserInfoRes.class);
     }
 
-    public List<Game> getGameInfo(long userNum) {
+    public List<GameInfo> getGameInfo(long userNum) {
         var gameListRes = restClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path(EternalReturnURL.USER_GAME.getUrl() + "/" + userNum)
                         .build())
                 .retrieve()
-                .body(GameListRes.class);
-        return gameListRes.getGameList();
+                .body(GameInfoListRes.class);
+        return gameListRes.getGameInfoList();
     }
 
-    public List<Player> getPlayerInfo(int gameId) {
-        var playerListRes = restClient.get()
+    public List<GameInfo> getPlayerInfo(int gameId) {
+        var gameInfoRes = restClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path(EternalReturnURL.PLAYER_INFO.getUrl() + "/" + gameId)
                         .build())
                 .retrieve()
-                .body(PlayerListRes.class);
-        return playerListRes.getPlayerList();
+                .body(GameInfoListRes.class);
+        return gameInfoRes.getGameInfoList();
     }
 }

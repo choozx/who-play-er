@@ -15,38 +15,26 @@ public class EternalReturnDto {
         private int code;
         private String message;
         private User user;
-
-        @Data
-        public static class User {
-            private long userNum;
-            private String nickname;
-        }
     }
 
     @Data
-    public static class GameListRes {
+    public static class GameInfoListRes {
         private int code;
         private String message;
         @JsonProperty("userGames")
-        private List<Game> gameList;
-
-        @Data
-        public static class Game {
-            private int gameId;
-        }
+        private List<GameInfo> gameInfoList;
     }
 
     @Data
-    public static class PlayerListRes {
-        private int code;
-        private String message;
-        @JsonProperty("userGames")
-        private List<Player> playerList;
+    public static class GameInfo {
+        private int gameId;
+        private long userNum;
+        private String nickname;
+    }
 
-        @Data
-        public static class Player {
-            private long userNum;
-            private String nickname;
-        }
+    @Data
+    public static class User {
+        private long userNum;
+        private String nickname;
     }
 }
