@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by dale on 2025-01-04.
  */
-public class EternalReturnDto {
+public class EternalReturnAPIDto {
 
     @Data
     public static class UserInfoRes {

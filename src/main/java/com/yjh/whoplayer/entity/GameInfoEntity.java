@@ -13,14 +13,14 @@ import org.springframework.data.domain.Persistable;
 
 @Entity
 @Getter
-@Table(name = "player")
+@Table(name = "game_info")
 public class GameInfoEntity implements Persistable<Long> {
 
     @Id
     @Column(name = "id")
     private long id;
-    @Column(name = "user_num")
-    private long userNum;
+    @Column(name = "er_uid")
+    private long er_uid;
     @Column(name = "game_id")
     private long gameId;
     @Column(name = "nickname")

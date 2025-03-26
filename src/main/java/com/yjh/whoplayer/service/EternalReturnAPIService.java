@@ -1,8 +1,8 @@
 package com.yjh.whoplayer.service;
 
-import com.yjh.whoplayer.model.EternalReturnDto.GameInfo;
-import com.yjh.whoplayer.model.EternalReturnDto.GameInfoListRes;
-import com.yjh.whoplayer.model.EternalReturnDto.UserInfoRes;
+import com.yjh.whoplayer.model.EternalReturnAPIDto.GameInfo;
+import com.yjh.whoplayer.model.EternalReturnAPIDto.GameInfoListRes;
+import com.yjh.whoplayer.model.EternalReturnAPIDto.UserInfoRes;
 import com.yjh.whoplayer.model.type.EternalReturnURL;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

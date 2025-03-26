@@ -1,6 +1,6 @@
 package com.yjh.whoplayer.service;
 
-import com.yjh.whoplayer.model.EternalReturnDto.GameInfo;
+import com.yjh.whoplayer.model.EternalReturnAPIDto.GameInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
