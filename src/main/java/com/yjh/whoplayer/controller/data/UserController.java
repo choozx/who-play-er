@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/update-game")
-    public void updateGame(@RequestBody Integer erUid) {
+    public void updateGame(@RequestBody Long erUid) {
         gameService.updateGame(erUid);
     }
 }
