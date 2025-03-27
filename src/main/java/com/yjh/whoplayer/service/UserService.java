@@ -22,7 +22,7 @@ public class UserService {
 
         return UserRes.builder()
                 .uid(userEntity.getUid())
-                .erUid(userEntity.getEr_uid())
+                .erUid(userEntity.getErUid())
                 .nickname(userEntity.getErNickname())
                 .build();
     }

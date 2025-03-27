@@ -28,11 +28,20 @@ public class CacheCelebrity implements CacheData<CacheCelebrity.Celebrity>{
         return sortedList;
     }
 
+    public boolean isCelebErUid(long erUid) {
+        return celebrityMap.containsKey(erUid);
+    }
+
+    public Celebrity getCeleb(long erUid) {
+        return celebrityMap.get(erUid);
+    }
+
     @Data
     public static class Celebrity {
         private long idx;
         private long userNum;
         private String erNickname;
         private String streamerName;
+
     }
 }

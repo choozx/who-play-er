@@ -20,7 +20,7 @@ public class GameInfoEntity implements Persistable<Long> {
     @Column(name = "id")
     private long id;
     @Column(name = "er_uid")
-    private long er_uid;
+    private long erUid;
     @Column(name = "game_id")
     private long gameId;
     @Column(name = "nickname")

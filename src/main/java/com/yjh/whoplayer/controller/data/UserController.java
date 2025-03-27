@@ -1,10 +1,13 @@
 package com.yjh.whoplayer.controller.data;
 
+import com.yjh.whoplayer.model.GameCelebInfo.GameCelebInfoRes;
 import com.yjh.whoplayer.model.UserRes;
 import com.yjh.whoplayer.service.GameService;
 import com.yjh.whoplayer.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,10 +17,9 @@ public class UserController {
     private final GameService gameService;
 
     @GetMapping("/user")
-    public void getUserInfo(@RequestParam String nickname) {
-        // TODO 유저 정보 가져오기
+    public void getUserInfo(@RequestParam String nickname, @RequestParam int page) {
         UserRes userRes = userService.getUserInfo(nickname);
-        // TODO 유저 매칭 정보 가져오기
+        List<GameCelebInfoRes> gameCelebInfoList = gameService.getGameCelebInfoList(userRes.getErUid(), page);
     }
 
     @PostMapping("/update-game")

@@ -14,7 +14,7 @@ public class EternalReturnAPIDto {
     public static class UserInfoRes {
         private int code;
         private String message;
-        private User user;
+        private UserInfo userInfo;
     }
 
     @Data
@@ -22,18 +22,18 @@ public class EternalReturnAPIDto {
         private int code;
         private String message;
         @JsonProperty("userGames")
-        private List<GameInfo> gameInfoList;
+        private List<GameInfoRes> gameInfoResList;
     }
 
     @Data
-    public static class GameInfo {
+    public static class GameInfoRes {
         private int gameId;
         private long userNum;
         private String nickname;
     }
 
     @Data
-    public static class User {
+    public static class UserInfo {
         private long userNum;
         private String nickname;
     }

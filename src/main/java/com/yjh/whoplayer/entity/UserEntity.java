@@ -17,14 +17,14 @@ public class UserEntity implements Persistable<Long> {
     @Column(name = "uid")
     private long uid;
     @Column(name = "er_uid")
-    private long er_uid;
+    private long erUid;
     @Column(name = "er_nickname")
     private String erNickname;
 
     public static UserEntity createNew(UserInfoRes res) {
         UserEntity entity = new UserEntity();
-        entity.er_uid = res.getUser().getUserNum();
-        entity.erNickname = res.getUser().getNickname();
+        entity.erUid = res.getUserInfo().getUserNum();
+        entity.erNickname = res.getUserInfo().getNickname();
         return entity;
     }
 

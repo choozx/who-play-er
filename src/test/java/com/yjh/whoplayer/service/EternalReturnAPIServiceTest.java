@@ -1,6 +1,6 @@
 package com.yjh.whoplayer.service;
 
-import com.yjh.whoplayer.model.EternalReturnAPIDto.GameInfo;
+import com.yjh.whoplayer.model.EternalReturnAPIDto.GameInfoRes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -38,7 +38,7 @@ class EternalReturnAPIServiceTest {
 
         Thread.sleep(2000); // api가 1초에 한번 밖에 못보냄
 
-        long userNum = userInfo.getUser().getUserNum();
+        long userNum = userInfo.getUserInfo().getUserNum();
         var gameList = eternalReturnAPIService.getGameInfo(userNum);
 
         for (var game : gameList) {
@@ -55,13 +55,13 @@ class EternalReturnAPIServiceTest {
 
         Thread.sleep(2000); // api가 1초에 한번 밖에 못보냄
 
-        long userNum = userInfo.getUser().getUserNum();
+        long userNum = userInfo.getUserInfo().getUserNum();
         var gameList = eternalReturnAPIService.getGameInfo(userNum);
 
         for (var game : gameList) {
             var playerList = eternalReturnAPIService.getPlayerInfo(game.getGameId());
 
-            String playerString = playerList.stream().map(GameInfo::getNickname)
+            String playerString = playerList.stream().map(GameInfoRes::getNickname)
                             .collect(Collectors.joining("|"));
             log.info("게임 아이디:{} , 참여자:{}", game.getGameId(), playerString);
 
