@@ -2,7 +2,7 @@ package com.yjh.whoplayer.service;
 
 import com.yjh.whoplayer.entity.UserEntity;
 import com.yjh.whoplayer.model.EternalReturnAPIDto.UserInfoRes;
-import com.yjh.whoplayer.model.UserRes;
+import com.yjh.whoplayer.model.UserDto;
 import com.yjh.whoplayer.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,14 +17,18 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public UserRes getUserInfo(String nickname) {
+    public UserDto getUserInfo(String nickname) {
         UserEntity userEntity = getUserEntity(nickname);
 
-        return UserRes.builder()
+        return UserDto.builder()
                 .uid(userEntity.getUid())
                 .erUid(userEntity.getErUid())
                 .nickname(userEntity.getErNickname())
                 .build();
+    }
+
+    public void updateUser(long erUid) {
+        // TODO 티어나 유저 정보에 관한거 업데이트
     }
 
     private UserEntity getUserEntity(String nickname) {
@@ -39,5 +43,4 @@ public class UserService {
         UserInfoRes userInfoRes = eternalReturnAPIService.getUserInfo(nickname);
         return UserEntity.createNew(userInfoRes);
     }
-
 }

@@ -1,16 +1,11 @@
 package com.yjh.whoplayer.model;
 
 import lombok.Builder;
-import lombok.Getter;
 
-/**
- * Created by dale on 2025-01-04.
- */
+import java.util.List;
 
-@Getter
 @Builder
 public class UserRes {
-    private long uid;
-    private long erUid;
-    private String nickname;
+    private UserDto user;
+    private List<GameCelebInfo.GameCelebInfoRes> gameCelebInfoList;
 }
